@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test112_hasPathSum {
+public class test112_PathSum {
 	public class TreeNode {
 		int val;
 		TreeNode left;
