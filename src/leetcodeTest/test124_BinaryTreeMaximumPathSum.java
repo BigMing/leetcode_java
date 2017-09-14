@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test124_maxPathSum {
+public class test124_BinaryTreeMaximumPathSum {
 	public class TreeNode {
 		int val;
 		TreeNode left;
@@ -15,7 +15,7 @@ public class test124_maxPathSum {
 	 * @param r
 	 * @return
 	 */
-	int maxDeep(TreeNode r) {
+	public int maxDeep(TreeNode r) {
 		if (r == null) {
 			return 0;
 		}
