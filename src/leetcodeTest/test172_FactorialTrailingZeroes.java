@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test172_trailingZeroes {
+public class test172_FactorialTrailingZeroes {
 	/**
 	 * a * 10^k Çók
 	 * @param n
