@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test190_reverseBits {
+public class test190_ReverseBits {
 	/**
 	 * 只需对待处理的整数n进行32次右移位，每当低位&1的结果为1，说明低位为1，
 	 * 此时将待输出的目标整数(默认值为0)左移动一位并加上1；每当低位&1的结果为0，
