@@ -3,8 +3,7 @@ package leetcodeTest;
 import java.util.HashSet;
 import java.util.Set;
 
-public class test202_isHappy {
-	
+public class test202_HappyNumber {
 	/**
 	 * 要注意死循环问题，比如：2 、4、16、37、58、89、145、42、20、4、16、37。。。
 	 * @param n
@@ -15,12 +14,10 @@ public class test202_isHappy {
 			return false;
 		long ln = n;
 		Set<Long> set = new HashSet<Long>();
-
 		while (ln <= Integer.MAX_VALUE) {
 			if (set.contains(ln))
 				return false;
 			else {
-//				System.out.println(ln);
 				set.add(ln);
 			}
 			ln = digitSquare(ln);
@@ -29,17 +26,14 @@ public class test202_isHappy {
 		}
 		return false;
 	}
-
 	/**
 	 * 计算每位数字的平方和
-	 * @param ln
-	 * @return
 	 */
 	private static long digitSquare(long ln) {
 		long sum = 0;
 		while (ln != 0) {
-			sum += Math.pow(ln % 10, 2);
-			ln /= 10;
+			sum += Math.pow(ln % 10, 2); // 最小一位平方
+			ln /= 10; //除以10，十位数移到个位数
 		}
 		return sum;
 	}
