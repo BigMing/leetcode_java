@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test191_hammingWeight {
+public class test191_Numberof1Bits {
 	public static int hammingWeight(int n) {
 		int count = 0;
 		String ns = Integer.toBinaryString(n);
