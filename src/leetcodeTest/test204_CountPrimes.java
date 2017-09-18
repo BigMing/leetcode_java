@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test204_countPrimes {
+public class test204_CountPrimes {
 
 	public static int countPrimes(int n) {
 		// 厄拉多塞筛法
@@ -14,7 +14,7 @@ public class test204_countPrimes {
 			else
 				Del[i] = false;
 		}
-		for (int i = 3; i < n; i += 2) {
+		for (int i = 3; i < n; i += 2) { // 3,5,7,9....
 			if (!Del[i]) // 之后第一个未被划去
 			{
 				if (i * i > n)
