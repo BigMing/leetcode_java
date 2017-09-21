@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test231_isPowerOfTwo {
+public class test231_PowerofTwo {
 	public static boolean isPowerOfTwo(int n) {
 		if (n <= 0) {
 			return false;

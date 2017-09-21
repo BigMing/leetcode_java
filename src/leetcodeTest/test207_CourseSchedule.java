@@ -17,7 +17,7 @@ public class test207_CourseSchedule {
 		}
 		Queue<Integer> que = new LinkedList<Integer>();
 		for (int i = 0; i < map.length; i++) {
-			if (map[i] == 0) // 出度为0，接入队列
+			if (map[i] == 0) // 出度为0，入队列
 				que.add(i);
 		}
 		int count = que.size();
