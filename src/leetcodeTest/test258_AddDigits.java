@@ -1,6 +1,6 @@
-package leetcodeTest;
+	package leetcodeTest;
 
-public class test258_addDigits {
+public class test258_AddDigits {
 	/**
 	 * abc = a * 100 + b * 10 + c
 	 * abc % 9 = (a * 99 + b * 9 + a + b + c) % 9 = (a + b + c) % 9  
