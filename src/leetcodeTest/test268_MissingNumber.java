@@ -1,16 +1,11 @@
 package leetcodeTest;
 
-public class test268_missingNumber {
+public class test268_MissingNumber {
     public int missingNumber(int[] nums) {
     	int sum = 0, n = nums.length;
         for (int i = 0; i < n; i ++) {
             sum += nums[i];
         }
-        return n * (n + 1) / 2 - sum;
+        return n * (n + 1) / 2 - sum; // ¼ÆËã¼ÓºÍ
     }
-
-	public static void main(String[] args) {
-		
-	}
-
 }
