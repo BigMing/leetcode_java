@@ -20,7 +20,6 @@ public class baicizhanTest {
 	}
 	
 	/**
-	 * 按DP的方案考虑
 	 * @param n 剩余的钱
 	 * @param k 还需要取的菜品个数
 	 * @param m 可选的菜品个数
