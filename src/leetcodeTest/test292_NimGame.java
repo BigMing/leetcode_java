@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test292_canWinNim {
+public class test292_NimGame {
 	/**
 	 * 每次取完剩下的数量是4的倍数，则对方必输
 	 */

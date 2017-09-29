@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
-public class test297_serialize {
+public class test297_SerializeandDeserializeBinaryTree {
 	public class TreeNode {
 		int val;
 		TreeNode left;
@@ -14,8 +14,8 @@ public class test297_serialize {
 		}
 	}
 	
-	private final String delimiter = ",";
-    private final String emptyNode = "#";
+	private final String delimiter = ","; // 分隔符
+    private final String emptyNode = "#"; // 空节点
     
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
@@ -42,7 +42,7 @@ public class test297_serialize {
     }
     
     private TreeNode deserialize(Deque<String> nodes) {
-        String nodeVal = nodes.pollFirst();
+        String nodeVal = nodes.pollFirst(); // 先进先出
         if(nodeVal.equals(emptyNode)) {
             return null;
         } else {
