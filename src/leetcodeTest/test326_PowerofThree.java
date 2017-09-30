@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test326_isPowerOfThree {
+public class test326_PowerofThree {
 	public static boolean isPowerOfThree(int n) {
 		if (n <= 0) {
 			return false;
@@ -13,11 +13,8 @@ public class test326_isPowerOfThree {
 		}
 		return true;
 	}
-
 	/**
 	 * µÝ¹éÊµÏÖ
-	 * @param n
-	 * @return
 	 */
 	public static boolean isPowerOfThree1(int n) {
 		if (n <= 0)
@@ -31,7 +28,6 @@ public class test326_isPowerOfThree {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println(isPowerOfThree1(26));
 	}
 
