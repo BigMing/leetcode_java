@@ -14,8 +14,7 @@ public class test208_ImplementTrie {
 			this.c = c;
 		}
 
-		public TrieNode() {
-		}
+		public TrieNode() {}
 	}
 
 	// 前缀树
@@ -39,7 +38,7 @@ public class test208_ImplementTrie {
 				}
 				children = t.children; // 向下一层遍历
 				if (i == word.length() - 1) // word的长度就是树的层级数
-					t.leaf = true;
+					t.leaf = true; // 是单词的结尾
 			}
 		}
 

@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test378_kthSmallest {
+public class test378_KthSmallestElementinaSortedMatrix {
 	/**
 	 * 要找出传入的g的大小范围，矩阵中可能会有多个g
 	 * @param g 传入的要猜测的结果
@@ -17,8 +17,8 @@ public class test378_kthSmallest {
 			int ans = -1; // 注意
 			while (L <= R) { // 闭区间
 				int mid = (L + R) / 2;
-				if (matrix[i][mid] < g) { // ans = 5，说明[0, 5]都是小于g的
-					ans = mid;
+				if (matrix[i][mid] < g) {
+					ans = mid; // ans = 5，说明[0, 5]都是小于g的
 					L = mid + 1;
 				} else {
 					R = mid - 1; // 右闭区间要-1
