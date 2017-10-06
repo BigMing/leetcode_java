@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test410_splitArray {
+public class test410_SplitArrayLargestSum {
 	/**
 	 * 把数组分成m个部分，使得每个部分最大的和最小
 	 * @param nums
@@ -31,7 +31,6 @@ public class test410_splitArray {
 	}
 
 	/**
-	 * 
 	 * @param mid 数组的部分和
 	 * @param nums 数组
 	 * @param m 需要分成m个部分
