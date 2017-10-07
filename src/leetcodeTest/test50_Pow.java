@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test50_myPow {
+public class test50_Pow {
 	/**
 	 * x^n=e^(nlnx)减少乘法次数，加大精度
 	 * @param x

@@ -5,7 +5,7 @@ package leetcodeTest;
  * 求根号的反函数转换成求平方，再转换成不等式问题x^2 <= y
  * @author sjm
  */
-public class test69_mySqrt {
+public class test69_Sqrt {
 	/**
 	 * 判断x的平方是否小于y
 	 * @param x
