@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test8_myAtoi {
+public class test8_StringtoInteger {
 	
 	public static int myAtoi(String str) {
 		long MAX_VALUE = Integer.MAX_VALUE; // 这里用int定义的话+1会出错

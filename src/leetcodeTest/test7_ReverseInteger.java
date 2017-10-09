@@ -1,6 +1,6 @@
 package leetcodeTest;
 
-public class test7_reverse {
+public class test7_ReverseInteger {
 	public static int reverse(int x) {
 		/**
 		 * 避免溢出先定义好最大最小值

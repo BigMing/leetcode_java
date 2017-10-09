@@ -1,7 +1,10 @@
 package leetcodeTest;
 
+import java.awt.Robot;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.plaf.multi.MultiButtonUI;
 
 public class test78_Subsets {
 	
@@ -35,5 +38,30 @@ public class test78_Subsets {
 			}
 		}
 		return res;
+	}
+	
+	public static boolean v[] = new boolean[100];
+	public static List<List<Integer>> ans = new ArrayList<List<Integer>>();
+	public void robot(int idx, int[] nums) {
+		if (idx >= nums.length) {
+			List<Integer> r = new ArrayList<>();
+			for (int i = 0; i < nums.length; i++) {
+				if (v[i]) {
+					r.add(nums[i]);
+				}
+			}
+			ans.add(r);
+			return;
+		}
+		v[idx] = true;
+		robot(idx + 1, nums);
+		v[idx] = false;
+		robot(idx + 1, nums);
+	}
+	
+	public List<List<Integer>> subsets2(int[] nums) {
+		ans.clear();
+		robot(0, nums);
+		return ans;
 	}
 }
