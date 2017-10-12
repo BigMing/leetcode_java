@@ -6,8 +6,6 @@ import java.util.Queue;
 /**
  * 除了和边界有接触的’O'的区域，其他的‘O'的区域都会变成'X'。 所以扫描一遍边界，对于在边界上的’O', 通过BFS标记与它相邻的'O'。
  * 扫描完成后将未标记的‘O'替换为’X'
- * 
- * @author sjm
  */
 public class test130_SurroundedRegions {
 	int x;
@@ -46,6 +44,7 @@ public class test130_SurroundedRegions {
 				}
 			}
 		}
+		// 需要去掉冗余，可以通过
 	}
 
 	private void DFS(int i, int j, char[][] board) {
@@ -56,7 +55,7 @@ public class test130_SurroundedRegions {
 			board[i][j] = 'm';
 		} else {
 			return;
-		} // 直接深度优先有变态的测试用例会栈溢出
+		} // 直接搜索有变态的测试用例会栈溢出
 		DFS(i, j + 1, board);
 		DFS(i, j - 1, board);
 		DFS(i + 1, j, board);
