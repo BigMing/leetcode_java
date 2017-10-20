@@ -7,7 +7,6 @@ public class test5_LongestPalindromicSubstring {
 		if (len == 1) {
 			return s;
 		}
-		
 		int maxlength = 0; // 最长回文字符串长度
 		int start = 0; // 回文开始的地方
 		
