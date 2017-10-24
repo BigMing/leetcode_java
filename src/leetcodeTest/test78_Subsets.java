@@ -1,10 +1,7 @@
 package leetcodeTest;
 
-import java.awt.Robot;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.plaf.multi.MultiButtonUI;
 
 public class test78_Subsets {
 	

@@ -1,7 +1,5 @@
 package leetcodeTest;
 
-import java.awt.Checkbox;
-
 public class test200_NumberofIslands {
 	public int numIslands(char[][] grid) {
 		int count = 0;

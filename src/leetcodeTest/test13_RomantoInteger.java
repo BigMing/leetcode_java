@@ -1,9 +1,5 @@
 package leetcodeTest;
 
-import java.awt.color.ICC_ColorSpace;
-import java.util.HashMap;
-import java.util.Map;
-
 public class test13_RomantoInteger {
 	/*
 	 * ±æÃ‚÷–£∫ I 1 V 5 X 10 L 50 C 100 D 500 M 1000
