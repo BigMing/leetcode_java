@@ -26,7 +26,6 @@ public class test84_LargestRectangleinHistogram {
 				maxarea = area;
 			}
 		}
-		
 		return maxarea;
 	}
 }
