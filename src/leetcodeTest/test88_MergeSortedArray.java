@@ -25,7 +25,7 @@ public class test88_MergeSortedArray {
 			}
 			k--;
 		}
-
+		
 		while (i >= 0) { // 说明数组num1长度大于数组num2，需将其剩余元素追加上
 			nums1[k] = nums1[i];
 			i--;
