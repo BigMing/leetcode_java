@@ -1,37 +1,51 @@
 package leetcodeTest;
 
 public class test44_WildcardMatching {
-    public boolean isMatch(String s, String p) {
-    	char[] s1 = s.toCharArray();
-    	char[] p1 = p.toCharArray();
-    	int i = 0, j = 0; // s1和p1的指针
-    	int x = 0, y = 0;
-        boolean has_star = false;
-        while (i < s1.length && (has_star || j < p1.length)) {
-			if (s1[i] == p1[j] || p1[j] == '?') {
-				++i;
-				++j;
-			} else if (p1[j] == '*') {
-				has_star = true;
-				if (j + 1 == p1.length) { // *是最后一个字符
+	public boolean isMatch(String s, String p) {
+		int is = 0;
+		int ip = 0;
+
+		int press = 0;
+		int presp = 0;
+
+		boolean backstrack = false;
+		
+		for (is = 0; is < s.length();) {
+			if (ip == p.length()) {
+				if (backstrack == false) {
+					return false;
+				} else if (p.charAt(p.length() - 1) == '*') {
 					return true;
+				} else {
+					ip = presp;
+					is = ++press;
 				}
-				x = i;
-				y = j + 1;
+			}
+			if (p.charAt(ip) == '?') {
+				is++;
+				ip++;
+			} else if (p.charAt(ip) == '*') {
+				presp = ++ip;
+				press = is;
+				backstrack = true;
 			} else {
-				if (!has_star) {
+				if (p.charAt(ip) == s.charAt(is)) {
+					is++;
+					ip++;
+				} else if (backstrack) {
+					ip = presp;
+					is = ++press;
+				} else {
 					return false;
 				}
-				i = x + 1;
-				j = y;
 			}
 		}
-        while (i < s1.length && s1[i] == '*') {
-			++i;
+		while (ip <= p.length() - 1 && p.charAt(ip) == '*') {
+			ip++;
+			if (ip == p.length()) {
+				break;
+			}
 		}
-        if (i == s1.length && j == p1.length) {
-			return true;
-		}
-        return false;
-    }
+		return ip == p.length();
+	}
 }
