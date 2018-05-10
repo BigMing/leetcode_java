@@ -1,24 +1,31 @@
 package leetcodeTest;
 
 public class test8_StringtoInteger {
-	
+	/*
+	 * Example 1:Input: "42",Output: 42
+	 * Example 2:Input: "   -42",Output: -42,
+	 * Explanation: The first non-whitespace character is '-', which is the minus sign. Then take as many numerical digits as possible, which gets 42.
+	 * Example 3:Input: "4193 with words",Output: 4193,
+	 * Explanation: Conversion stops at digit '3' as the next character is not a numerical digit.
+	 * Example 4:Input: "words and 987",Output: 0,
+	 * Explanation: The first non-whitespace character is 'w', which is not a numerical, digit or a +/- sign. Therefore no valid conversion could be performed.
+	 * Example 5:Input: "-91283472332",Output: -2147483648,
+	 * Explanation: The number "-91283472332" is out of the range of a 32-bit signed integer. Thefore INT_MIN (âˆ’231) is returned.
+	 */
 	public static int myAtoi(String str) {
-		long MAX_VALUE = Integer.MAX_VALUE; // ÕâÀïÓÃint¶¨ÒåµÄ»°+1»á³ö´í
+		long MAX_VALUE = Integer.MAX_VALUE; // è¿™é‡Œç”¨intå®šä¹‰çš„è¯+1ä¼šå‡ºé”™
 		long ans = 0;
-		str = str.trim(); //È¥µôstrÇ°ÃæµÄ¿Õ¸ñ
-		char [] strCharArray = str.toCharArray(); //ÏÈ°ÑString×ª»¯ÎªcharÊı×é
-		//¿¼ÂÇÕı¸ººÅ
-		boolean flag = false;
+		str = str.trim(); // å»æ‰strå‰é¢çš„ç©ºæ ¼
+		char [] strCharArray = str.toCharArray(); // å…ˆæŠŠStringè½¬åŒ–ä¸ºcharæ•°ç»„
+		boolean flag = false; // è€ƒè™‘æ­£è´Ÿå·
 		int index = 0;
 		if (index < strCharArray.length && strCharArray[index] == '+') {
 			index++;
-		} else if (index < strCharArray.length && strCharArray[index] == '-') {
-			//ÓĞ'+-'µÄÇé¿ö³öÏÖ
+		} else if (index < strCharArray.length && strCharArray[index] == '-') { // æœ‰'+-'çš„æƒ…å†µå‡ºç°
 			index++;
 			flag = true;
 		}
-		// ×ª»¯ÎªÊı
-		for (; index < strCharArray.length; index++) {
+		for (; index < strCharArray.length; index++) { // è½¬åŒ–ä¸ºæ•°
 			if (strCharArray[index] <= '9' && strCharArray[index] >= '0') {
 				ans = ans * 10 + strCharArray[index] - '0';
 				if (ans > MAX_VALUE) {
@@ -26,11 +33,10 @@ public class test8_StringtoInteger {
 					break;
 				}
 			} else {
-				break; //strÖĞ³öÏÖ·ÇÊı×ÖÖ±½Óbreak
+				break; // strä¸­å‡ºç°éæ•°å­—ç›´æ¥break
 			}
 		}
-		if (flag) {
-			//¸ºÊı×îĞ¡Îª-2147483648
+		if (flag) { // è´Ÿæ•°æœ€å°ä¸º-2147483648
 			ans = -ans;
 		}
 		if (ans > MAX_VALUE) {

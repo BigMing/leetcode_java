@@ -2,7 +2,7 @@ package leetcodeTest;
 
 import java.util.Arrays;
 
-public class baicizhanTest {
+public class a5 {
 	public static int sulotion2(int n, int k, int m, int prices[]) {
 		int ans = 0;
 		for (int i = m - k - 1; i < m; i++) {

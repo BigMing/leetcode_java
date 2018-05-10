@@ -1,10 +1,13 @@
 package leetcodeTest;
 
 public class test7_ReverseInteger {
+	/*
+	 * Example 1:Input: 123,Output: 321
+	 * Example 2:Input: -123,Output: -321
+	 * Example 3:,Input: 120,Output: 21
+	 */
 	public static int reverse(int x) {
-		/**
-		 * 避免溢出先定义好最大最小值
-		 */
+		// 避免溢出先定义好最大最小值
 		final int MAX_VALUE = Integer.MAX_VALUE;
 		final int MIN_VALUE = Integer.MIN_VALUE;
 		long ans = 0;

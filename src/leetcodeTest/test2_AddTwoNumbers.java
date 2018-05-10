@@ -1,6 +1,11 @@
 package leetcodeTest;
 
 public class test2_AddTwoNumbers {
+	/*
+	 * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+	 * Output: 7 -> 0 -> 8
+	 * Explanation: 342 + 465 = 807.
+	 */
 	public class ListNode {
 		int val;
 		ListNode next;
@@ -28,6 +33,6 @@ public class test2_AddTwoNumbers {
 		}
 		if (carry == 1)
 			p3.next = new ListNode(1);
-		return listNode.next;
+		return listNode.next; // 有一个头指针
     }
 }

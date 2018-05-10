@@ -1,11 +1,13 @@
 package leetcodeTest;
 
 public class test4_MedianofTwoSortedArrays {
-	 // 归并排序
-    public double findMedianSortedArrays1(int[] nums1, int[] nums2) {
+	/*
+	 * Example 1:nums1 = [1, 3],nums2 = [2],The median is 2.0;
+	 * Example 2:nums1 = [1, 2],nums2 = [3, 4],The median is (2 + 3)/2 = 2.5
+	 */
+    public double findMedianSortedArrays1(int[] nums1, int[] nums2) { // 归并排序
         int m = nums1.length;
         int n = nums2.length;
-        
         if (m == 0) { // 如果num1是空数组
 			if (n % 2 != 0) { // num2的长度为奇数
 				return 1.0 * nums2[n / 2]; // 返回double，这时直接就是num2的中间那个数
@@ -16,12 +18,10 @@ public class test4_MedianofTwoSortedArrays {
 				return 1.0 * nums1[m / 2];
 			}
 		}
-        
         int i = 0;
         int j = 0;
         int[] ans = new int[10000];
         int index = 0; // 用于辅助ans增加，相当与ans此时的长度
-        
         while (i < m & j < n) { // 依次把两个数组中的数从小到大放入ans
 			if (nums1[i] <= nums2[j]) {
 				ans[index] = nums1[i];
@@ -68,10 +68,8 @@ public class test4_MedianofTwoSortedArrays {
 				return 1.0 * nums1[m / 2];
 			}
 		}
-        
         int total = (m + n + 1) / 2;
         int total2 = (m + n + 2) / 2;
-        
         return (find_kth(nums1, 0, nums2, 0, total) + find_kth(nums1, 0, nums2, 0, total2)) / 2.0;
     }
 

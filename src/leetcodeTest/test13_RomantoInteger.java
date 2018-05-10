@@ -9,7 +9,7 @@ public class test13_RomantoInteger {
 	public int romanToInt(String s) {
 		int res = 0;
 		char max = 'I';
-		for (int i = s.length() - 1; i >= 0; --i) {
+		for (int i = s.length() - 1; i >= 0; --i) { // ´ÓºóÍùÇ°
 			if (getVal(s.charAt(i)) >= getVal(max)) {
 				max = s.charAt(i);
 				res += getVal(s.charAt(i));

@@ -4,10 +4,14 @@ import java.util.HashMap;
 
 public class test3_LongestSubstringWithoutRepeatingCharacters {
 	/*
-	 * 利用hashmap存储不重复子串，key为字符，value为此字符的位置。
-	 * 从前向后进行遍历，只要map 中没有当前字符，便将其加入map 。
-	 * 并将子串长度加一。若当前字符已经出现在map 中，获得map中 此字符的位置，
-	 * 清除此位置以及之前的的所有key 。从此位置之后重新计算子串，保证了子串的不重复。
+	 * Given "abcabcbb", the answer is "abc", which the length is 3.
+	 * Given "bbbbb", the answer is "b", with the length of 1.
+	 * Given "pwwkew", the answer is "wke", with the length of 3. 
+	 * Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+	 */
+	/*
+	 * 利用hashmap存储不重复子串，key为字符，value为此字符的位置。从前向后进行遍历，只要map中没有当前字符，便将其加入map。
+	 * 并将子串长度加一。若当前字符已经出现在map中，获得map中此字符的位置，清除此位置以及之前的的所有key。从此位置之后重新计算子串，保证了子串的不重复。
 	 */
 	public int lengthOfLongestSubstring(String s) {
 		if (s == null)
@@ -22,7 +26,7 @@ public class test3_LongestSubstringWithoutRepeatingCharacters {
 				if (len > maxLen)
 					maxLen = len; // 不重复时不断的记录当前最大长度
 				map.put(s.charAt(i), i);
-			} else {
+			} else { // 字符出现过
 				int index = map.get(s.charAt(i)); // map中有此字符时，取出其下标
 				for (int j = start; j <= index; j++) {
 					map.remove(s.charAt(j)); // 删除此index之前的所以key，包括index

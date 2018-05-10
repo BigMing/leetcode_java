@@ -11,7 +11,6 @@ public class test1_TwoSum {
 			int curr = nums[i];
 			if (!map.containsKey(curr)) {
 				map.put(target - curr, i);
-				// If the map previously contained a mapping for the key, the old value is replaced.
 			} else {
 				result[0] = map.get(curr);
 				result[1] = i;
