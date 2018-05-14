@@ -1,19 +1,23 @@
 package leetcodeTest;
 
 public class test28_ImplementstrStr {
+	/*
+	 * Example 1:Input: haystack = "hello", needle = "ll",Output: 2 Example
+	 * 2:Input: haystack = "aaaaa", needle = "bba",Output: -1
+	 */
 	public int strStr(String haystack, String needle) {
 		if (haystack == null || needle == null || haystack.length() < needle.length())
 			return -1;
 		if (haystack.length() == 0 || needle.length() == 0)
 			return 0;
-		
+
 		int[] next = calNext(needle);
-		
+
 		int hlen = haystack.length();
 		int nlen = needle.length();
 		int hindex = 0;
 		int nindex = 0;
-		
+
 		while (hindex < hlen && nindex < nlen) {
 			if (haystack.charAt(hindex) == needle.charAt(nindex)) // 从头开始，若匹配就一直继续比较
 			{
@@ -47,5 +51,24 @@ public class test28_ImplementstrStr {
 				next[pos++] = 0;
 		}
 		return next;
+	}
+
+	public int strStr1(String haystack, String needle) {
+		int len_needle = needle.length();
+		int len_haystack = haystack.length();
+		int n1 = 0;
+		int h1 = 0;
+		while (h1 + len_needle <= len_haystack) {
+			int k = h1;
+			while (n1 < len_needle && haystack.charAt(k) == needle.charAt(n1)) {
+				n1++;
+				k++;
+			}
+			if (n1 == len_needle)
+				return h1;
+			n1 = 0;
+			h1++;
+		}
+		return -1;
 	}
 }

@@ -1,13 +1,17 @@
 package leetcodeTest;
 
 public class test29_DivideTwoIntegers {
+	/*
+	 * Example 1:Input: dividend = 10, divisor = 3,Output: 3
+	 * Example 2:Input: dividend = 7, divisor = -3,Output: -2
+	 */
 	public int divide(int dividend, int divisor) {
 		int sign = 1; // 解决正负问题
 		if (dividend < 0)
 			sign = -sign;
 		if (divisor < 0)
 			sign = -sign;
-		
+	
 		long temp = Math.abs((long) dividend); // Math.abs(-2147483648) 结果还是 -2147483648. 在进行该运算前，要将其转化为long类型
 		long temp2 = Math.abs((long) divisor);
 		long c = 1;

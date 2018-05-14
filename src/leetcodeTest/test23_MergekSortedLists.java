@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class test23_MergekSortedLists {
+	/*
+	 * Input:[1->4->5,1->3->4,2->6],Output: 1->1->2->3->4->4->5->6
+	 */
 	public class ListNode {
 		int val;
 		ListNode next;
@@ -33,16 +36,13 @@ public class test23_MergekSortedLists {
 				return node1.val - node2.val;
 			}
 		});
-
 		for (ListNode node : lists) { // 把每个链表首节点放入heap
 			if (node != null) {
 				heap.add(node);
 			}
 		}
-
 		ListNode head = null;
 		ListNode cur = null;
-
 		while (!heap.isEmpty()) {
 			ListNode node = heap.poll(); // Retrieves and removes the head of this queue, or returns null if this queue is empty.
 			if (node.next != null) { // 弹出最小的之后放入它的next

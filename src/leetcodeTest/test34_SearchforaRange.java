@@ -1,6 +1,10 @@
 package leetcodeTest;
 
 public class test34_SearchforaRange {
+	/*
+	 * Example 1:Input: nums = [5,7,7,8,8,10], target = 8,Output: [3,4]
+	 * Example 2:Input: nums = [5,7,7,8,8,10], target = 6,Output: [-1,-1]
+	 */
 	public int[] searchRange(int[] nums, int target) {
 		int[] res = new int[2];
 		int l = 0, len = nums.length, r = len - 1, mid = 0;

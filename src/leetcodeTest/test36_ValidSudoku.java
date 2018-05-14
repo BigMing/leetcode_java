@@ -16,7 +16,7 @@ public class test36_ValidSudoku {
 			cl.add(new HashSet<Character>()); // 9ÁÐ
 			sl.add(new HashSet<Character>()); // 9¸ösquare
 		}
-		
+
 		int n = board.length;
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
