@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 public class test49_GroupAnagrams {
+	/*
+	 * Example:Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+	 * Output:[["ate","eat","tea"],["nat","tan"],["bat"]]
+	 */
 	public static List<List<String>> groupAnagrams(String[] strs) {
 		Map<String, List<String>> map = new HashMap<String, List<String>>();
 		

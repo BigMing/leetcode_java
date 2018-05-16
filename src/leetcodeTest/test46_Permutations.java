@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class test46_Permutations {
+	/*
+	 * Given a collection of distinct integers, return all possible permutations.
+	 * Example:Input: [1,2,3],
+	 * Output:[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+	 */
 	public static List<List<Integer>> ans = new ArrayList<>();
 	
 	public static int[] path = new int[100]; // ÔÝ´æÐ¡´ð°¸
