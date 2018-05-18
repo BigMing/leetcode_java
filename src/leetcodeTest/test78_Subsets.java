@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class test78_Subsets {
-	
+	/*
+	 * Input: nums = [1,2,3]
+	 * Output:[[3],[1],[2],[1,2,3],[1,3],[2,3],[1,2],[]]
+	 */
 	public List<List<Integer>> subsets(int[] nums) {
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
 		List<Integer> temp = new ArrayList<Integer>();

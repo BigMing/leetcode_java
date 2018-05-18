@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class test76_MinimumWindowSubstring {
+	/*
+	 * Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+	 * Example:Input: S = "ADOBECODEBANC", T = "ABC",Output: "BANC"
+	 */
 	public String minWindow(String s, String t) {
 		Map<Character, Integer> map = new HashMap<>();
 		int min = Integer.MAX_VALUE;

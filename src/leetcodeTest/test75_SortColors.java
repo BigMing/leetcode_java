@@ -1,6 +1,9 @@
 package leetcodeTest;
 
 public class test75_SortColors {
+	/*
+	 * Example:Input: [2,0,2,1,1,0],Output: [0,0,1,1,2,2]
+	 */
 	public void sortColors(int[] nums) {
 		int i = 0;
 		int j = 0;

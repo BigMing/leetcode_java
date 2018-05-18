@@ -1,7 +1,18 @@
 package leetcodeTest;
 
 public class test79_WordSearch {
-
+	/*
+	 * Given a 2D board and a word, find if the word exists in the grid.
+	 * The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring.
+	 * The same letter cell may not be used more than once.
+	 * Example:board =
+		[ ['A','B','C','E'],
+		  ['S','F','C','S'],
+		  ['A','D','E','E']]
+		  Given word = "ABCCED", return true.
+		  Given word = "SEE", return true.
+		  Given word = "ABCB", return false.
+	 */
 	public boolean exist(char[][] board, String word) {
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[0].length; j++) {
@@ -14,7 +25,7 @@ public class test79_WordSearch {
 	}
 
 	public boolean exist(char[][] board, int x, int y, String word, int index) {
-		if (index == word.length()) { // Ô½½ç
+		if (index == word.length()) {
 			return true;
 		}
 		if (x < 0 || y < 0 || x >= board.length || y >= board[0].length || board[x][y] != word.charAt(index)) {
