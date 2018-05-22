@@ -5,6 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class test103_BinaryTreeZigzagLevelOrderTraversal {
+	/*
+	 * Given a binary tree, return the zigzag level order traversal of its nodes' values.
+	 * (ie, from left to right, then right to left for the next level and alternate between).
+	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;
@@ -17,9 +21,7 @@ public class test103_BinaryTreeZigzagLevelOrderTraversal {
 
 	public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
-
 		levelRecursion(root, result, 0);
-
 		return result;
 	}
 
@@ -35,8 +37,7 @@ public class test103_BinaryTreeZigzagLevelOrderTraversal {
 		} else {
 			result.get(level).add(node.val);
 		}
-
-		levelRecursion(node.left, result, level + 1);
+		levelRecursion(node.left, result, level + 1); // ´Ó×óµ½ÓÒ
 		levelRecursion(node.right, result, level + 1);
 	}
 }

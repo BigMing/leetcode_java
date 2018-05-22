@@ -1,6 +1,9 @@
 package leetcodeTest;
 
 public class test101_SymmetricTree {
+	/*
+	 * Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;

@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Queue;
 
 public class test102_BinaryTreeLevelOrderTraversal {
+	/*
+	 * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;
@@ -18,16 +21,13 @@ public class test102_BinaryTreeLevelOrderTraversal {
 
 	public List<List<Integer>> levelOrder(TreeNode root) {
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
-		
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
-
 		if (root == null)
 			return res;
-
 		q.offer(root);
 		int mark = 0;
 		while (!q.isEmpty()) {
-			mark = q.size(); // 用mark记录一层是个数
+			mark = q.size(); // 用mark记录一层的个数
 			List<Integer> tmpList = new ArrayList<Integer>();
 			TreeNode tmpNode = new TreeNode(0);
 			

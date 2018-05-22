@@ -5,6 +5,15 @@ import java.util.List;
 import java.util.Stack;
 
 public class test94_BinaryTreeInorderTraversal {
+	/*
+	 * Input: [1,null,2,3]
+	 * 1
+	 *  \
+	 *   2
+	 *  /
+	 * 3
+	 * Output: [1,3,2]
+	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;

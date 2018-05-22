@@ -1,6 +1,9 @@
 package leetcodeTest;
 
 public class test105_ConstructBinaryTreefromPreorderandInorderTraversal {
+	/*
+	 * Given preorder and inorder traversal of a tree, construct the binary tree.
+	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;
