@@ -6,6 +6,20 @@ import java.util.List;
 import java.util.Set;
 
 public class test140_WordBreakII {
+	/*
+	 * Example 1:
+	 * 
+	 * Input: s = "catsanddog" wordDict = ["cat", "cats", "and", "sand", "dog"]
+	 * Output: [ "cats and dog", "cat sand dog" ] Example 2:
+	 * 
+	 * Input: s = "pineapplepenapple" wordDict = ["apple", "pen", "applepen",
+	 * "pine", "pineapple"] Output: [ "pine apple pen apple",
+	 * "pineapple pen apple", "pine applepen apple" ] Explanation: Note that you
+	 * are allowed to reuse a dictionary word. Example 3:
+	 * 
+	 * Input: s = "catsandog" wordDict = ["cats", "dog", "sand", "and", "cat"]
+	 * Output: []
+	 */
 	private void find(String s, List<Integer>[] substrings, int from, List<String> currents, List<String> results) {
 		if (from == s.length()) { // 终止条件
 			StringBuilder sb = new StringBuilder();
@@ -21,7 +35,8 @@ public class test140_WordBreakII {
 			currents.add(s.substring(from, from + length)); // 存入可行的单词集合
 			find(s, substrings, from + length, currents, results);
 			currents.remove(currents.size() - 1); // 删掉最后一个，深度优先
-			// Removes the element at the specified position in this list (optional operation).
+			// Removes the element at the specified position in this list
+			// (optional operation).
 		}
 	}
 
@@ -34,7 +49,7 @@ public class test140_WordBreakII {
 		int l = 0;
 		for (int length : lengthSet) {
 			lengths[l++] = length;
-		} // lengths存个单词长度
+		} // lengths存个单词长度，无重复
 		List<Integer>[] substrings = new List[s.length() + 1];
 		substrings[0] = new ArrayList<>();
 		for (int i = 0; i < s.length(); i++) {
@@ -56,13 +71,14 @@ public class test140_WordBreakII {
 		find(s, substrings, 0, new ArrayList<>(), results); // DFS
 		return results;
 	}
-	
+
 	/**
 	 * 字典树加DFS
 	 */
 	class TrieNode {
 		boolean isWord; // 相当于之前字典树标志是否是叶节点
 		TrieNode[] nexts = new TrieNode[26];
+
 		TrieNode add(char ch) {
 			int i = ch - 'a'; // 只实现了小写字母的字典
 			if (nexts[i] != null)
@@ -111,10 +127,12 @@ public class test140_WordBreakII {
 			for (int i = 0; i < wa.length; i++)
 				current = current.add(wa[i]);
 			current.isWord = true;
-		} // 依次把单词插入树
+		} // 依次把单词插入树root
+		
 		char[] sa = s.toCharArray();
 		boolean[] reachable = new boolean[sa.length + 1];
 		reachable[0] = true;
+		
 		for (int i = 0; i < sa.length; i++) {
 			if (!reachable[i])
 				continue;
