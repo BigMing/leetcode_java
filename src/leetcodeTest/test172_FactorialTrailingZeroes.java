@@ -1,10 +1,8 @@
 package leetcodeTest;
 
 public class test172_FactorialTrailingZeroes {
-	/**
+	/*
 	 * a * 10^k Çók
-	 * @param n
-	 * @return
 	 */
 	public static int trailingZeroes(int n) {
 		if (n < 1)
@@ -13,7 +11,7 @@ public class test172_FactorialTrailingZeroes {
 		while (n / 5 != 0) {
 			n /= 5;
 			k += n;
-		}
+		} // 5 * 5 * 5 ...
 		return k;
 	}
 
