@@ -8,6 +8,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class test212_WordSearchII {
+	/*
+	 * Given a 2D board and a list of words from the dictionary, find all words
+	 * in the board.
+	 * 
+	 * Each word must be constructed from letters of sequentially adjacent cell,
+	 * where "adjacent" cells are those horizontally or vertically neighboring.
+	 * The same letter cell may not be used more than once in a word.
+	 */
 	public List<String> findWords(char[][] board, String[] words) {
 		Set<String> res = new HashSet<String>();
 		if (board == null || words == null || board.length == 0 || words.length == 0) {
@@ -34,7 +42,7 @@ public class test212_WordSearchII {
 		String s = sb.toString();
 		visited[i][j] = true;
 		if (trie.startsWith(s)) { // 如果前缀是s
-			if (trie.search(s)) { // 如果是前缀树中找到了s，说明s是给出的word之一的时候
+			if (trie.search(s)) { // 如果是前缀树中找到了s，说明s是给出的word之一的时候，主要是加快搜索速度
 				res.add(s); // 把s加入结果的list
 			}
 			// 再深度遍历
@@ -52,18 +60,23 @@ public class test212_WordSearchII {
 		char c;
 		boolean leaf;
 		HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
+
 		public TrieNode(char c) {
 			this.c = c;
 		}
-		public TrieNode() {}
+
+		public TrieNode() {
+		}
 	}
 
 	// 前缀树
 	class Trie {
 		private TrieNode root;
+
 		public Trie() {
 			root = new TrieNode();
 		}
+
 		public void insert(String word) {
 			Map<Character, TrieNode> children = root.children;
 			for (int i = 0; i < word.length(); i++) { // 遍历word的每个字符

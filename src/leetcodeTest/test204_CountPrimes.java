@@ -1,7 +1,14 @@
 package leetcodeTest;
 
 public class test204_CountPrimes {
-
+	/*
+	 * Count the number of prime numbers less than a non-negative number, n.
+	 * 
+	 * Example:
+	 * 
+	 * Input: 10 Output: 4 Explanation: There are 4 prime numbers less than 10,
+	 * they are 2, 3, 5, 7.
+	 */
 	public static int countPrimes(int n) {
 		// 厄拉多塞筛法
 		boolean Del[] = new boolean[n]; // 标记是否被划去
@@ -15,8 +22,7 @@ public class test204_CountPrimes {
 				Del[i] = false;
 		}
 		for (int i = 3; i < n; i += 2) { // 3,5,7,9....
-			if (!Del[i]) // 之后第一个未被划去
-			{
+			if (!Del[i]) { // 之后第一个未被划去
 				if (i * i > n)
 					break; // 当前素数的平方大于n，跳出循环
 				for (int j = 2; i * j < n; ++j)
