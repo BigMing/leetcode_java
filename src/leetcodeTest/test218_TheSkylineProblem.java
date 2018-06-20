@@ -15,6 +15,7 @@ public class test218_TheSkylineProblem {
 		int h;
 		TreeNode left;
 		TreeNode right;
+
 		TreeNode(int s, int e, int h) {
 			st = s;
 			ed = e;
@@ -23,12 +24,12 @@ public class test218_TheSkylineProblem {
 			right = null;
 		}
 	}
-	
+
 	public List<int[]> getSkyline1(int[][] buildings) {
 		TreeNode root = new TreeNode(0, Integer.MAX_VALUE, 0); // 构造根节点，水平线
 		for (int i = 0; i < buildings.length; i++) {
-			insert(root, buildings[i][0], buildings[i][1] - 1, buildings[i][2]);
-			
+			insert(root, buildings[i][0], buildings[i][1] - 1, buildings[i][2]); // 左，右，高度
+
 		}
 		List<int[]> ans = new ArrayList<int[]>();
 		buildans(root, ans, 0);
@@ -57,7 +58,7 @@ public class test218_TheSkylineProblem {
 		if (root.st > ed || root.ed < st) {
 			return;
 		}
-		if (root.left == null && root.right == null) {// 叶子节点
+		if (root.left == null && root.right == null) { // 叶子节点
 			if (st <= root.st && ed >= root.ed) { // 不需要分裂
 				root.h = Math.max(root.h, h);
 			} else {
@@ -78,14 +79,12 @@ public class test218_TheSkylineProblem {
 			insert(root.right, st, ed, h);
 		}
 	}
-	
-	/**
+
+	/*
 	 * 把每一个building拆成两个edge，一个入一个出。所有的edge加入到一个list中。再对这个list进行排序，
 	 * 排序顺序为：如果两个边的position不一样，那么按pos排，否则根据edge是入还是出来排。
 	 * 根据position从前到后扫描每一个edge，将edge根据是入还是出来将当前height加入或者移除heap。
 	 * 再得到当前最高点来决定是否加入最终结果。
-	 * @param buildings
-	 * @return
 	 */
 	public List<int[]> getSkyline(int[][] buildings) {
 		List<int[]> result = new ArrayList<>();
@@ -98,13 +97,13 @@ public class test218_TheSkylineProblem {
 			public int compare(int[] a, int[] b) {
 				if (a[0] != b[0]) // 先按照边的位置排序
 					return a[0] - b[0];
-				return a[1] - b[1]; // 再按照出入边排序
+				return a[1] - b[1]; // 再按照出入边排序，入边为负，在前
 			}
 		});
 		// 优先队列要重写排序方法
 		Queue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>() {
 			public int compare(Integer a, Integer b) {
-				return b - a;
+				return b - a; // 从大到小
 			}
 		});
 		pq.offer(0); // 插入0

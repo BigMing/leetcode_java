@@ -1,4 +1,4 @@
-package leetcodeTest;
+package test;
 
 public class a1 {
 	public static void main(String[] args) {

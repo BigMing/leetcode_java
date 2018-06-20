@@ -1,19 +1,23 @@
 package leetcodeTest;
 
 public class test230_KthSmallestElementinaBST {
+	/*
+	 * Given a binary search tree, write a function kthSmallest to find the kth
+	 * smallest element in it.
+	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
+
 		TreeNode(int x) {
 			val = x;
 		}
 	}
-	/**
-	 * 1、计算左子树元素个数left。
-	 * 2、 left+1 = K，则根节点即为第K个元素
-	 * left >=k, 则第K个元素在左子树中，
-	 * left +1 <k, 则转换为在右子树中，寻找第K-left-1元素。
+
+	/*
+	 * 1、计算左子树元素个数left。 2、 left+1 = K，则根节点即为第K个元素 left >=k, 则第K个元素在左子树中， left +1
+	 * <k, 则转换为在右子树中，寻找第K-left-1元素。
 	 */
 	public int kthSmallest(TreeNode root, int k) {
 		if (root == null) {
@@ -25,11 +29,12 @@ public class test230_KthSmallestElementinaBST {
 		} else if (leftSize >= k) {
 			return kthSmallest(root.left, k); // 左子树中
 		} else {
-			return kthSmallest(root.right, k - leftSize - 1); // left +1 <k, 则转换为在右子树中，寻找第K-left-1元素。
+			return kthSmallest(root.right, k - leftSize - 1); // left +1 <k,
+																// 则转换为在右子树中，寻找第K-left-1元素。
 		}
 	}
-	
-	private int calcTreeSize(TreeNode root) {
+
+	private int calcTreeSize(TreeNode root) { // 计算节点个数
 		if (root == null) {
 			return 0;
 		}
