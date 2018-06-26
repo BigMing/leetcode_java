@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class test315_CountofSmallerNumbersAfterSelf {
-	/**
-	 * 穷举计数，时间复杂度O(n^2)，超时、无法通过。
+	/*
+	 * You are given an integer array nums and you have to return a new counts
+	 * array. The counts array has the property where counts[i] is the number of
+	 * smaller elements to the right of nums[i].
 	 * 
-	 * @param nums
-	 * @return
+	 * Example:
+	 * 
+	 * Input: [5,2,6,1] Output: [2,1,1,0] Explanation: To the right of 5 there
+	 * are 2 smaller elements (2 and 1). To the right of 2 there is only 1
+	 * smaller element (1). To the right of 6 there is 1 smaller element (1). To
+	 * the right of 1 there is 0 smaller element.
+	 */
+	/*
+	 * 穷举计数，时间复杂度O(n^2)，超时、无法通过。
 	 */
 	public List<Integer> countSmaller1(int[] nums) {
 		int[] smaller = new int[nums.length];
@@ -23,12 +32,13 @@ public class test315_CountofSmallerNumbersAfterSelf {
 			results.add(smaller[i]);
 		return results;
 	}
-	
+
 	// 使用BST进行统计。时间复杂度O(nlogn)。
 	class TreeNode {
 		int val;
 		int size; // 当前节点为根时，树的大小（节点个数）
 		TreeNode left, right;
+
 		TreeNode(int val) {
 			this.val = val;
 		}
@@ -65,12 +75,13 @@ public class test315_CountofSmallerNumbersAfterSelf {
 			result.add(smaller[i]);
 		return result;
 	}
-	
+
 	// 分段树
 	class Node {
 		int min, max;
 		int count;
 		Node left, right;
+
 		Node(int min, int max) {
 			this.min = min;
 			this.max = max;

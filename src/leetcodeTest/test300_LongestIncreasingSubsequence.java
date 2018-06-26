@@ -1,71 +1,66 @@
 package leetcodeTest;
 
 public class test300_LongestIncreasingSubsequence {
-	public static int[] f = new int[10000];
-	public static int[] p = new int[10000];
-	public static int n;
-	public static int robot(int idx, int[] nums) {
-		if (idx < 0) {
+	/*
+	 * Given an unsorted array of integers, find the length of longest
+	 * increasing subsequence.
+	 * 
+	 * Example:
+	 * 
+	 * Input: [10,9,2,5,3,7,101,18] Output: 4 Explanation: The longest
+	 * increasing subsequence is [2,3,7,101], therefore the length is 4.
+	 */
+	public int lengthOfLIS(int[] nums) {
+		// [10, 2, 5, 3, 7],
+		if (nums == null || nums.length < 1)
 			return 0;
+
+		int[] d = new int[nums.length];
+		d[0] = 1;
+		int max = 1;
+		for (int i = 1; i < nums.length; i++) {
+			d[i] = 1;
+			for (int j = 0; j < i; j++) {
+				if (nums[i] > nums[j]) { // i大于前面的j
+					d[i] = Math.max(d[i], d[j] + 1); // d[i] 为 subset 0...i
+														// 的最大Longest increasing
+														// sub.
+				}
+			}
+			max = Math.max(max, d[i]);
 		}
-		if (f[idx] > 0) { // i计算过
-			return f[idx];
+		return max;
+	}
+
+	// O(NlgN)
+	public int lengthOfLIS1(int[] nums) {
+		int len = 0;
+		int[] a = new int[nums.length];
+		for (int val : nums) { // 遍历每个数
+			int index = binary(a, 0, len - 1, val); // 每个数的顺序位置，排序
+			a[index] = val;
+			if (len == index) // 说明这个数字是新加进去这个数组的
+				len++;
 		}
-		int ans = 0;
-		for (int i = 0; i < idx; i++) {
-			if (nums[idx] > nums[i]) {
-				ans = Math.max(ans, robot(i, nums));
+		return len;
+	}
+
+	// 相当于在left-right的区间内找到val的插入位置。保证升序；
+	public int binary(int[] a, int left, int right, int val) {
+		while (left <= right) {
+			int mid = getMid(left, right);
+			if (a[mid] >= val) {
+				right = mid - 1;
+			} // 相等也要替换这个值;
+			else {
+				left = mid + 1;
 			}
 		}
-		f[idx] = ans + 1;
-		return ans + 1;
+		return left;
 	}
-	
-    public int lengthOfLIS(int[] nums) {
-    	for (int i = 0; i < 10000; i++) {
-    		f[i] = 0;
-    	}
-    	for (int i = 0; i < nums.length; i++) {
-    		p[i] = nums[i];
-    	}
-    	int n = nums.length;
-    	p[n] = Integer.MAX_VALUE;
-    	n++; // 尾部加一个最大值
-    	// 改成非递归
-    	int min[] = new int[10000];
-    	int path = 0;
-    	for (int i = 0; i < 10000; i++) {
-    		min[i] = Integer.MAX_VALUE;
-    	}
-    	for (int idx = 0; idx < n; idx++) {
-    		int ans = 0;
-//    		for (int i = 0; i < idx; i++) {
-//    			if (p[idx] > p[i]) {
-//    				ans = Math.max(ans, f[i]);
-//    			}
-//    		}
-//    		for (int i = 1; i <= path; i++) {
-//    			if (p[idx] > min[i]) {
-//    				ans = Math.max(ans, i);
-//    			}
-//    		}
-    		int L = 1;
-    		int R = path;
-    		while (L <= R) {
-    			int mid = (L + R) / 2;
-    			if (min[mid] < p[idx]) {
-    				ans = mid;
-    				L = mid + 1;
-    			} else {
-    				R = mid - 1;
-    			}
-    		}
-    		// [10,9,2,5,3,7,10]中，min[2] = 3 (2,3) 
-    		f[idx] = ans + 1;
-    		min[f[idx]] = Math.min(min[f[idx]], p[idx]); // min的下标是答案的长度，值是最后一个子序列最小是多少
-    		path = Math.max(path, f[idx]); // 当前最大可能串的长度
-    	}
-        return f[n - 1] - 1;
-//        return robot(n - 1, p) - 1;
-    }
+
+	public int getMid(int left, int right) {
+		return left + (right - left) / 2;
+	}
+
 }
