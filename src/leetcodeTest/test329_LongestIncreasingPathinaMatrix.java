@@ -1,7 +1,15 @@
 package leetcodeTest;
 
 public class test329_LongestIncreasingPathinaMatrix {
+	/*
+	 * Given an integer matrix, find the length of the longest increasing path.
+	 * 
+	 * From each cell, you can either move to four directions: left, right, up
+	 * or down. You may NOT move diagonally or move outside of the boundary
+	 * (i.e. wrap-around is not allowed).
+	 */
 	public int n, m;
+
 	// 从[x][y]出发，最远可以走多少步
 	public int robot(int x, int y, int[][] mat, int[][] cache) {
 		if (cache[x][y] != 0) { // 之前遍历过[x][y]这个点，节省后续计算
@@ -23,19 +31,20 @@ public class test329_LongestIncreasingPathinaMatrix {
 		cache[x][y] = max + 1;
 		return cache[x][y]; // 这个数四个方向都未满足条件（走到头），返回1
 	}
-    public int longestIncreasingPath(int[][] matrix) {
-        n = matrix.length;
-        if (n == 0) {
-        	return 0;
-        }
-        m = matrix[0].length;
-        int[][] cache = new int[n][m]; // 记录下已经计算过的点最远能走多远，后面就可以减少计算量
-        int ans = 0;
-        for (int i = 0; i < n; i++) {
-        	for (int j = 0; j < m; j++) {
-        		ans = Math.max(ans, robot(i, j, matrix, cache));
-        	}
-        }
-        return ans;
-    }
+
+	public int longestIncreasingPath(int[][] matrix) {
+		n = matrix.length;
+		if (n == 0) {
+			return 0;
+		}
+		m = matrix[0].length;
+		int[][] cache = new int[n][m]; // 记录下已经计算过的点最远能走多远，后面就可以减少计算量
+		int ans = 0;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				ans = Math.max(ans, robot(i, j, matrix, cache));
+			}
+		}
+		return ans;
+	}
 }

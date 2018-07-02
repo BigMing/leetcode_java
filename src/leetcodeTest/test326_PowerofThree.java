@@ -1,6 +1,10 @@
 package leetcodeTest;
 
 public class test326_PowerofThree {
+	/*
+	 * Given an integer, write a function to determine if it is a power of
+	 * three.
+	 */
 	public static boolean isPowerOfThree(int n) {
 		if (n <= 0) {
 			return false;
@@ -13,7 +17,8 @@ public class test326_PowerofThree {
 		}
 		return true;
 	}
-	/**
+
+	/*
 	 * µÝ¹éÊµÏÖ
 	 */
 	public static boolean isPowerOfThree1(int n) {
