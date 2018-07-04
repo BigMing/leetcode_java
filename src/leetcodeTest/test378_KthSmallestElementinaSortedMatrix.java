@@ -1,12 +1,26 @@
 package leetcodeTest;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class test378_KthSmallestElementinaSortedMatrix {
+	/*
+	 * Given a n x n matrix where each of the rows and columns are sorted in
+	 * ascending order, find the kth smallest element in the matrix.
+	 * 
+	 * Note that it is the kth smallest element in the sorted order, not the kth
+	 * distinct element.
+	 */
 	/**
 	 * 要找出传入的g的大小范围，矩阵中可能会有多个g
-	 * @param g 传入的要猜测的结果
-	 * @param martix 
-	 * @param k 第k小的
-	 * @param n 矩阵的阶数
+	 * 
+	 * @param g
+	 *            传入的要猜测的结果
+	 * @param martix
+	 * @param k
+	 *            第k小的
+	 * @param n
+	 *            矩阵的阶数
 	 * @return
 	 */
 	public static boolean guess(int g, int[][] matrix, int k, int n) {
@@ -28,11 +42,9 @@ public class test378_KthSmallestElementinaSortedMatrix {
 		}
 		return k > sum1; // 猜的g还可以更大
 	}
-	/**
+
+	/*
 	 * 当k越大，输出越大，给出k求结果很麻烦，但是给出结果求k很容易
-	 * @param matrix n*n矩阵
-	 * @param k 求第k小的数
-	 * @return
 	 */
 	public static int kthSmallest(int[][] matrix, int k) {
 		int n = matrix.length;
@@ -40,7 +52,7 @@ public class test378_KthSmallestElementinaSortedMatrix {
 		int L = matrix[0][0];
 		int ans = 0;
 		while (L <= R) { // 闭区间
-			int mid = (int) (((long)L + R) / 2); // L + R可能越界
+			int mid = (int) (((long) L + R) / 2); // L + R可能越界
 			if (guess(mid, matrix, k, n)) {
 				ans = mid;
 				L = mid + 1;
@@ -50,10 +62,30 @@ public class test378_KthSmallestElementinaSortedMatrix {
 		}
 		return ans;
 	}
-	
-	public static void main(String[] args) {
-		int [][] matrix = {{ 1,  5,  9}, {10, 11, 13}, {12, 13, 15}};
-		int k = 8;
-		System.out.println(kthSmallest(matrix, k));
+
+	public int kthSmallest1(int[][] matrix, int k) {
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(new Comparator<Integer>() {
+			public int compare(Integer a0, Integer a1) {
+				if (a0 > a1) {
+					return -1;
+				} else if (a0 < a1) {
+					return 1;
+				}
+				return 0;
+			}
+		});// 最大堆
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
+				if ((i + 1) * (j + 1) > k) {
+					break;
+				}
+				maxHeap.offer(matrix[i][j]);
+				if (maxHeap.size() > k) {
+					maxHeap.poll();
+				}
+			}
+		}
+		return maxHeap.peek();
 	}
+
 }
