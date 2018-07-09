@@ -2,25 +2,29 @@ package leetcodeTest;
 
 public class test105_ConstructBinaryTreefromPreorderandInorderTraversal {
 	/*
-	 * Given preorder and inorder traversal of a tree, construct the binary tree.
+	 * Given preorder and inorder traversal of a tree, construct the binary
+	 * tree.
 	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
+
 		TreeNode(int x) {
 			val = x;
 		}
 	}
-    public int[] pre;
+
+	public int[] pre;
 	public int[] in;
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        pre = preorder;
-        in = inorder;
-        TreeNode r = build(0, pre.length - 1, 0, in.length - 1);
-        return r;
-    }
-    
+
+	public TreeNode buildTree(int[] preorder, int[] inorder) {
+		pre = preorder;
+		in = inorder;
+		TreeNode r = build(0, pre.length - 1, 0, in.length - 1);
+		return r;
+	}
+
 	private TreeNode build(int st1, int ed1, int st2, int ed2) {
 		if (st1 > ed1) {
 			return null;
@@ -33,7 +37,7 @@ public class test105_ConstructBinaryTreefromPreorderandInorderTraversal {
 				break;
 			}
 		}
-		if (find == -1) {
+		if (find == -1) { // √ª’“µΩ
 			return null;
 		}
 		int c = find - st2;

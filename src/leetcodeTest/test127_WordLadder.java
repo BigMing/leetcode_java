@@ -23,21 +23,19 @@ public class test127_WordLadder {
 	 * 
 	 * Explanation: The endWord "cog" is not in wordList, therefore no possible
 	 * transformation.
-	 * 
-	 * https://www.jianshu.com/p/753bd585d57e
 	 */
 	public int ladderLength(String beginWord, String endWord, List<String> wordList) {
 		Set<String> wordSet = new HashSet<>(wordList);
 		Set<String> visited = new HashSet<>();
 		visited.add(beginWord);
 		int dist = 1;
-		while (!visited.contains(endWord)) {
+		while (!visited.contains(endWord)) { // 访问过的不含endword
 			Set<String> temp = new HashSet<>();
-			for (String word : visited) { // 每个word
-				for (int i = 0; i < word.length(); i++) {
+			for (String word : visited) { // 遍历每个访问过的word
+				for (int i = 0; i < word.length(); i++) { // 每个字母
 					char[] chars = word.toCharArray(); // 转为char[]
 					for (int j = (int) 'a'; j < (int) 'z' + 1; j++) {
-						chars[i] = (char) j; // 变第一个字母
+						chars[i] = (char) j; // 变一个字母
 						String newWord = new String(chars);
 						if (wordSet.contains(newWord)) {
 							temp.add(newWord);

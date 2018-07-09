@@ -2,17 +2,19 @@ package leetcodeTest;
 
 public class test101_SymmetricTree {
 	/*
-	 * Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+	 * Given a binary tree, check whether it is a mirror of itself (ie,
+	 * symmetric around its center).
 	 */
 	public class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
+
 		TreeNode(int x) {
 			val = x;
 		}
 	}
-	
+
 	public boolean fun(TreeNode p, TreeNode q) {
 		if (p == null && q == null) {
 			return true;
@@ -22,11 +24,11 @@ public class test101_SymmetricTree {
 		}
 		return false;
 	}
-	
-    public boolean isSymmetric(TreeNode root) {
-    	if (root == null) {
+
+	public boolean isSymmetric(TreeNode root) {
+		if (root == null) {
 			return true;
 		}
-    	return fun(root.left, root.right);
-    }
+		return fun(root.left, root.right);
+	}
 }

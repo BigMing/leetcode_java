@@ -7,7 +7,8 @@ import java.util.Queue;
 
 public class test102_BinaryTreeLevelOrderTraversal {
 	/*
-	 * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+	 * Given a binary tree, return the level order traversal of its nodes'
+	 * values. (ie, from left to right, level by level).
 	 */
 	public class TreeNode {
 		int val;
@@ -30,7 +31,7 @@ public class test102_BinaryTreeLevelOrderTraversal {
 			mark = q.size(); // 用mark记录一层的个数
 			List<Integer> tmpList = new ArrayList<Integer>();
 			TreeNode tmpNode = new TreeNode(0);
-			
+
 			for (int i = 0; i < mark; i++) {
 				tmpNode = q.poll();
 				tmpList.add(tmpNode.val);
