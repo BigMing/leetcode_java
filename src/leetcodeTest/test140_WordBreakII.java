@@ -128,11 +128,11 @@ public class test140_WordBreakII {
 				current = current.add(wa[i]);
 			current.isWord = true;
 		} // 依次把单词插入树root
-		
+
 		char[] sa = s.toCharArray();
 		boolean[] reachable = new boolean[sa.length + 1];
 		reachable[0] = true;
-		
+
 		for (int i = 0; i < sa.length; i++) {
 			if (!reachable[i])
 				continue;

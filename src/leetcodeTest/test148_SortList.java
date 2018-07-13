@@ -47,7 +47,6 @@ public class test148_SortList {
 				headB = headB.next;
 			}
 			cur = cur.next;
-
 		}
 		cur.next = headA == null ? headB : headA;
 		return fakeNode.next;

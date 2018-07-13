@@ -32,20 +32,20 @@ public class test149_MaxPointsonaLine {
 
 		int max = 2;
 		HashMap<Double, Integer> maps = new HashMap<>();
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < length; i++) { // 遍历所有点i
 			maps.clear();
 			Point now = points[i];
 			int dulplicate = 1;
 			int vertical = 0;
 
-			for (int j = i + 1; j < length; j++) {
+			for (int j = i + 1; j < length; j++) { // 再遍历j
 				Point cmp = points[j];
 				if (now.x == cmp.x && now.y == cmp.y) // 重复的点
 					dulplicate++;
 				else if (now.x == cmp.x) { // 垂直的点
 					vertical++;
 				} else {
-					double slope = (cmp.y == now.y) ? 0.0 : (1.0) * (cmp.y - now.y) / (cmp.x - now.x);
+					double slope = (cmp.y == now.y) ? 0.0 : (1.0) * (cmp.y - now.y) / (cmp.x - now.x); // 斜率
 					if (maps.containsKey(slope)) {
 						maps.put(slope, maps.get(slope) + 1);
 					} else

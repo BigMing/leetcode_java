@@ -17,6 +17,7 @@ public class test130_SurroundedRegions {
 	 */
 	int x;
 	int y;
+
 	public void solve1(char[][] board) {
 		if (board.length <= 0) {
 			return;
@@ -107,7 +108,7 @@ public class test130_SurroundedRegions {
 				queue.add(temp);
 			}
 		}
-		
+
 		while (!queue.isEmpty()) {
 			int[] a = queue.poll();
 			int x = a[0];
