@@ -8,8 +8,8 @@ import java.util.Set;
 
 public class test15_3Sum {
 	/*
-	 * Given array nums = [-1, 0, 1, 2, -1, -4],
-	 * A solution set is: [[-1, 0, 1],[-1, -1, 2]]
+	 * Given array nums = [-1, 0, 1, 2, -1, -4], A solution set is: [[-1, 0,
+	 * 1],[-1, -1, 2]]
 	 */
 	public List<List<Integer>> threeSum(int[] nums) {
 		List<List<Integer>> ans = new ArrayList<List<Integer>>();
