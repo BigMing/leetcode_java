@@ -37,8 +37,8 @@ public class test160_IntersectionofTwoLinkedLists {
 				q = q.next;
 			else
 				++pcount;
-		} // 两个count记录，谁长谁的count是0
-		if (p != q) // 最后一个节点不同
+		} // 两个count记录
+		if (p != q) // 最后一个节点不同，返回空
 			return null;
 		p = headA;
 		q = headB;
@@ -47,7 +47,7 @@ public class test160_IntersectionofTwoLinkedLists {
 		}
 		while (qcount-- != 0) {
 			q = q.next;
-		}
+		} // 尾部对齐
 		while (p != q) {
 			p = p.next;
 			q = q.next;
